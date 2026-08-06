@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مزون دلاویز | دوخت لباس کودک و مادر</title>
+<style>
+  :root {
+    --bg: oklch(97% 0.005 60);
+    --surface: oklch(100% 0 0);
+    --border: oklch(88% 0.01 60);
+    --text: oklch(18% 0.01 60);
+    --muted: oklch(52% 0.01 60);
+    --accent: oklch(62% 0.18 10);
+    --accent-light: oklch(94% 0.06 10);
+    --accent-dark: oklch(48% 0.18 10);
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+  }
+
+  .logo span { color: var(--text); font-weight: 400; font-size: 0.85rem; display: block; }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.95rem;
+    transition: color 120ms ease;
+  }
+
+  nav a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, oklch(96% 0.04 10) 0%, oklch(98% 0.02 30) 100%);
+    padding: 96px 5% 80px;
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    font-size: 0.8rem;
+    padding: 4px 14px;
+    border-radius: 99px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .hero h1 em {
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 36px;
+  }
+
+  .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 28px;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 150ms ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+  }
+
+  .btn-outline:hover { background: var(--accent-light); }
+
+  /* SERVICES */
+  .section { padding: 72px 5%; }
+  .section-title {
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .section-sub {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 48px;
+    font-size: 0.95rem;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 32px 24px;
+    text-align: center;
+    transition: box-shadow 150ms ease, transform 150ms ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 24px oklch(62% 0.18 10 / 0.1);
+    transform: translateY(-3px);
+  }
+
+  .card-icon {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+  }
+
+  .card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+  .card p { color: var(--muted); font-size: 0.9rem; }
+
+  /* PORTFOLIO */
+  .portfolio-bg { background: oklch(96% 0.015 10); }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .portfolio-item {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .portfolio-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px oklch(62% 0.18 10 / 0.12);
+  }
+
+  .portfolio-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    background: var(--accent-light);
+  }
+
+  /* SVG placeholder images */
+  .portfolio-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    background: linear-gradient(135deg, var(--accent-light), oklch(90% 0.08 30));
+  }
+
+  .portfolio-info { padding: 16px 20px; }
+  .portfolio-info h4 { font-size: 1rem; margin-bottom: 4px; }
+  .portfolio-info p { color: var(--muted); font-size: 0.85rem; }
+
+  .tag {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    font-size: 0.75rem;
+    padding: 2px 10px;
+    border-radius: 99px;
+    margin-top: 8px;
+    font-weight: 600;
+  }
+
+  /* ORDER */
+  .order-section {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    padding: 72px 5%;
+    text-align: center;
+    color: #fff;
+  }
+
+  .order-section h2 { font-size: 1.8rem; margin-bottom: 12px; }
+  .order-section p { opacity: 0.85; margin-bottom: 36px; max-width: 480px; margin-inline: auto; margin-bottom: 36px; }
+
+  .contact-cards {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-card {
+    background: oklch(100% 0 0 / 0.12);
+    border: 1.5px solid oklch(100% 0 0 / 0.25);
+    border-radius: var(--radius-md);
+    padding: 24px 32px;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 150ms ease;
+    min-width: 160px;
+  }
+
+  .contact-card:hover { background: oklch(100% 0 0 / 0.22); }
+  .contact-card .icon { font-size: 2rem; }
+  .contact-card small { font-weight: 400; opacity: 0.8; font-size: 0.8rem; }
+
+  /* PROCESS */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    counter-reset: step;
+  }
+
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 28px 20px;
+    position: relative;
+  }
+
+  .step-num {
+    width: 36px;
+    height: 36px;
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 14px;
+  }
+
+  .step h4 { font-size: 1rem; margin-bottom: 6px; }
+  .step p { color: var(--muted); font-size: 0.88rem; }
+
+  /* FOOTER */
+  footer {
+    background: oklch(14% 0.01 60);
+    color: oklch(70% 0.01 60);
+    text-align: center;
+    padding: 32px 5%;
+    font-size: 0.88rem;
+  }
+
+  footer strong { color: #fff; }
+
+  @media (max-width: 600px) {
+    nav ul { display: none; }
+    .hero { padding: 64px 5% 56px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    مزون دلاویز
+    <span>دوخت تخصصی لباس کودک و مادر</span>
+  </div>
+  <ul>
+    <li><a href="#services">خدمات</a></li>
+    <li><a href="#portfolio">نمونه کارها</a></li>
+    <li><a href="#process">فرآیند سفارش</a></li>
+    <li><a href="#contact">تماس</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">✦ سفارش‌پذیر — دوخت اختصاصی</div>
+  <h1>لباس‌هایی که <em>داستان می‌گویند</em><br>برای مادر و کودک</h1>
+  <p>طراحی و دوخت لباس‌های منحصربه‌فرد با پارچه‌های باکیفیت، متناسب با سلیقه و اندام شما</p>
+  <div class="btn-group">
+    <a href="#contact" class="btn btn-primary">📲 ثبت سفارش</a>
+    <a href="#portfolio" class="btn btn-outline">مشاهده نمونه کارها</a>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <h2 class="section-title">خدمات ما</h2>
+  <p class="section-sub">هر لباس با دقت و عشق دوخته می‌شود</p>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">👗</div>
+      <h3>لباس مادر</h3>
+      <p>پیراهن، مانتو، ست مجلسی و روزمره با طراحی مدرن و دوخت حرفه‌ای</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧒</div>
+      <h3>لباس کودک</h3>
+      <p>پوشاک راحت و شاد برای نوزاد تا نوجوان، با پارچه‌های ایمن و نرم</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">👩‍👧</div>
+      <h3>ست مادر و کودک</h3>
+      <p>طرح‌های هماهنگ و دلنشین برای لحظات خاص و عکاسی</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">✂️</div>
+      <h3>دوخت سفارشی</h3>
+      <p>طراحی بر اساس ایده شما، با انتخاب پارچه و رنگ دلخواه</p>
+    </div>
+  </div>
+</section>
+
+<section class="section portfolio-bg" id="portfolio">
+  <h2 class="section-title">نمونه کارها</h2>
+  <p class="section-sub">بخشی از آثار اخیر مزون دلاویز</p>
+  <div class="portfolio-grid">
+
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder">🌸</div>
+      <div class="portfolio-info">
+        <h4>پیراهن مجلسی مادر</h4>
+        <p>پارچه ژاکارد گلدار، آستین سه‌ربع، دوخت سفارشی</p>
+        <span class="tag">لباس مادر</span>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder">🎀</div>
+      <div class="portfolio-info">
+        <h4>ست مادر و دختر</h4>
+        <p>پارچه کتان رنگ کرم، طرح هماهنگ، مناسب عکاسی</p>
+        <span class="tag">ست مادر و کودک</span>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder">🧸</div>
+      <div class="portfolio-info">
+        <h4>سرهمی نوزادی</h4>
+        <p>پارچه نخ پنبه ارگانیک، طرح خرس کوچولو، سایز ۳ تا ۱۸ ماه</p>
+        <span class="tag">لباس کودک</span>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder">🌿</div>
+      <div class="portfolio-info">
+        <h4>مانتو روزمره</h4>
+        <p>پارچه کرپ سبز زیتونی، یقه هفت، جیب دوبل</p>
+        <span class="tag">لباس مادر</span>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder">🦋</div>
+      <div class="portfolio-info">
+        <h4>پیراهن دخترانه</h4>
+        <p>پارچه شیفون چاپی، کمربند پاپیونی، سایز ۲ تا ۸ سال</p>
+        <span class="tag">لباس کودک</span>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder">💐</div>
+      <div class="portfolio-info">
+        <h4>ست مجلسی مادر و پسر</h4>
+        <p>پارچه ساتن آبی نفتی، مناسب مراسم و جشن‌ها</p>
+        <span class="tag">ست مادر و کودک</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="process">
+  <h2 class="section-title">فرآیند سفارش</h2>
+  <p class="section-sub">از ایده تا تحویل، همراه شما هستیم</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">۱</div>
+      <h4>تماس و مشاوره</h4>
+      <p>از طریق واتساپ یا اینستاگرام با ما در ارتباط باشید و ایده‌تان را بگویید</p>
+    </div>
+    <div class="step">
+      <div class="step-num">۲</div>
+      <h4>استعلام قیمت</h4>
+      <p>بر اساس مدل، پارچه و سایز، قیمت دقیق اعلام می‌شود</p>
+    </div>
+    <div class="step">
+      <div class="step-num">۳</div>
+      <h4>انتخاب پارچه</h4>
+      <p>پارچه‌های موجود معرفی می‌شوند یا پارچه دلخواه شما دوخته می‌شود</p>
+    </div>
+    <div class="step">
+      <div class="step-num">۴</div>
+      <h4>دوخت و تحویل</h4>
+      <p>لباس با دقت دوخته و در زمان توافق‌شده تحویل داده می‌شود</p>
+    </div>
+  </div>
+</section>
+
+<section class="order-section" id="contact">
+  <h2>آماده سفارش هستید؟</h2>
+  <p>برای استعلام قیمت، مشاوره رایگان یا ثبت سفارش با ما تماس بگیرید</p>
+  <div class="contact-cards">
+    <a href="https://wa.me/989XXXXXXXXX" class="contact-card" target="_blank" rel="noopener">
+      <span class="icon">💬</span>
+      واتساپ
+      <small>پاسخ سریع</small>
+    </a>
+    <a href="https://instagram.com/delaviz_mazon" class="contact-card" target="_blank" rel="noopener">
+      <span class="icon">📸</span>
+      اینستاگرام
+      <small>@delaviz_mazon</small>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© ۱۴۰۵ <strong>مزون دلاویز</strong> — دوخت تخصصی لباس کودک و مادر</p>
+  <p style="margin-top:8px; font-size:0.8rem;">فروش حضوری نداریم — سفارش از طریق واتساپ و اینستاگرام</p>
+</footer>
+
+</body>
+</html>
+```فروش حضوری نداریم — سفارش از طریق واتساپ و اینستاگرام</p>
+
+کد کاملاً تمام شده بود. فایل HTML مزون دلاویز شامل تمام بخش‌های زیر است:
+
+- ناوبار چسبنده با لوگو و منو
+- بخش Hero با دکمه‌های سفارش
+- بخش خدمات (۴ کارت)
+- گالری نمونه کارها (۶ آیتم)
+- فرآیند سفارش (۴ مرحله)
+- بخش تماس با لینک واتساپ و اینستاگرام
+- فوتر
+
+برای استفاده، شماره واتساپ را در `href="https://wa.me/989XXXXXXXXX"` و آیدی اینستاگرام را در `@delaviz_mazon` جایگزین کنید.
+
