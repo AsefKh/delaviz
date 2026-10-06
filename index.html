@@ -1,509 +1,828 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مزون دلاویز | دوخت لباس کودک و مادر</title>
+<title>مزون دلاویز | Delaviz Boutique</title>
+<meta name="description" content="مزون دلاویز - بوتیک مد و فشن زنانه. مجموعه‌های منتخب لباس شب، کژوال و فرمال با پارچه‌های مرغوب و طراحی‌های مدرن و اصیل.">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="مزون دلاویز">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta property="og:type" content="website">
+<meta property="og:title" content="مزون دلاویز | Delaviz Boutique">
+<meta property="og:description" content="اصالت، درخشش، دلاویز. مجموعه‌های منتخب مد زنانه.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0A0A'/%3E%3Ctext x='32' y='45' font-family='serif' font-size='40' text-anchor='middle' fill='%23C9A96A'%3ED%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Vazirmatn:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
   :root {
-    --bg: oklch(97% 0.005 60);
-    --surface: oklch(100% 0 0);
-    --border: oklch(88% 0.01 60);
-    --text: oklch(18% 0.01 60);
-    --muted: oklch(52% 0.01 60);
-    --accent: oklch(62% 0.18 10);
-    --accent-light: oklch(94% 0.06 10);
-    --accent-dark: oklch(48% 0.18 10);
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
+    --gold: #C9A96A;
+    --gold-deep: #B8944F;
+    --ink: #0A0A0A;
+    --text: #111111;
+    --muted: #6B6B6B;
+    --soft: #FAFAFA;
+    --line: #EDEDED;
+    --white: #FFFFFF;
+
+    /* Headings: Playfair for Latin; Persian glyphs fall through to Arial/Tahoma bold, as on the original */
+    --heading: "Playfair Display", Arial, Tahoma, sans-serif;
+    --body: "Vazirmatn", Tahoma, sans-serif;
+    --pad: clamp(20px, 4vw, 56px);
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
+    margin: 0; background: var(--white); color: var(--text);
+    font-family: var(--body); font-weight: 300; font-size: 16px; line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
   }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button, input, textarea { font: inherit; color: inherit; }
+  button { cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .icon { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .wrap { max-width: 1200px; margin-inline: auto; padding-inline: var(--pad); }
 
-  /* NAV */
-  nav {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 0 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 68px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
+  h1, h2, h3, h4 { font-family: var(--heading); font-weight: 700; margin: 0; letter-spacing: 0; }
 
-  .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: -0.5px;
-  }
+  .section { padding-block: clamp(64px, 9vw, 120px); }
+  .section.soft { background: var(--soft); }
+  .eyebrow { display: block; color: var(--gold); font-size: .78rem; font-weight: 400; margin-bottom: 14px; }
+  .sec-head { text-align: center; margin-bottom: clamp(36px, 5vw, 60px); }
+  .sec-head h2 { font-size: clamp(1.9rem, 3.8vw, 2.9rem); line-height: 1.4; }
+  .sec-head p { max-width: 560px; margin: 16px auto 0; color: var(--muted); font-size: .95rem; }
+  .rule { width: 56px; height: 1px; margin: 22px auto 0; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
 
-  .logo span { color: var(--text); font-weight: 400; font-size: 0.85rem; display: block; }
-
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 32px;
-  }
-
-  nav a {
-    text-decoration: none;
-    color: var(--muted);
-    font-size: 0.95rem;
-    transition: color 120ms ease;
-  }
-
-  nav a:hover { color: var(--accent); }
-
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, oklch(96% 0.04 10) 0%, oklch(98% 0.02 30) 100%);
-    padding: 96px 5% 80px;
-    text-align: center;
-  }
-
-  .hero-badge {
-    display: inline-block;
-    background: var(--accent-light);
-    color: var(--accent-dark);
-    font-size: 0.8rem;
-    padding: 4px 14px;
-    border-radius: 99px;
-    margin-bottom: 20px;
-    font-weight: 600;
-  }
-
-  .hero h1 {
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 800;
-    color: var(--text);
-    margin-bottom: 16px;
-    line-height: 1.3;
-  }
-
-  .hero h1 em {
-    color: var(--accent);
-    font-style: normal;
-  }
-
-  .hero p {
-    font-size: 1.1rem;
-    color: var(--muted);
-    max-width: 520px;
-    margin: 0 auto 36px;
-  }
-
-  .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
+  /* Buttons */
   .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 13px 28px;
-    border-radius: var(--radius-sm);
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 150ms ease;
-    cursor: pointer;
-    border: none;
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 50px; padding: 0 30px; border-radius: 999px;
+    font-size: .92rem; font-weight: 500; border: 1px solid transparent;
+    transition: background .25s, color .25s, border-color .25s, transform .25s;
+  }
+  .btn-gold { background: var(--gold); color: var(--ink); }
+  .btn-gold:hover { background: #d6b87c; }
+  .btn-ghost { border-color: rgba(255,255,255,.4); color: #fff; }
+  .btn-ghost:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+  .btn-pill { background: #fff; border-color: var(--line); color: var(--text); min-height: 44px; padding: 0 22px; font-weight: 400; }
+  .btn-pill:hover { border-color: var(--gold); }
+
+  /* ---------- Header ---------- */
+  .header {
+    position: fixed; inset: 0 0 auto 0; z-index: 50; color: #fff;
+    transition: background .3s, color .3s, box-shadow .3s;
+  }
+  .header .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 84px; gap: 20px; }
+  .brand { display: inline-flex; flex-direction: column; line-height: 1.1; justify-self: start; }
+  .brand b { font-family: var(--heading); font-size: 1.5rem; font-weight: 700; }
+  .brand small { color: var(--gold); font-size: .62rem; font-weight: 400; margin-top: 2px; }
+  .nav { display: flex; gap: clamp(20px, 3vw, 40px); font-size: .9rem; font-weight: 400; }
+  .nav a { opacity: .85; padding-block: 6px; transition: opacity .2s, color .2s; }
+  .nav a:hover { opacity: 1; color: var(--gold); }
+  .header .cta { justify-self: end; font-size: .85rem; padding: 0 22px; min-height: 42px; }
+  .header.scrolled { background: rgba(255,255,255,.94); backdrop-filter: blur(12px); color: var(--text); box-shadow: 0 1px 0 var(--line); }
+  .header.scrolled .wrap { min-height: 68px; }
+  .header.scrolled .cta { border-color: var(--ink); color: var(--ink); }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; min-height: min(92vh, 680px); background: #0b0907; color: #fff; display: flex; align-items: center; overflow: hidden; }
+  .hero-img {
+    position: absolute; inset-block: 0; left: 0; width: 60%; height: 100%;
+    object-fit: cover; object-position: right center;
+    -webkit-mask-image: linear-gradient(to right, #000 60%, transparent 100%);
+            mask-image: linear-gradient(to right, #000 60%, transparent 100%);
+  }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to left, rgba(11,9,7,.55) 0%, rgba(11,9,7,0) 55%); pointer-events: none; }
+  .hero .wrap { position: relative; z-index: 2; width: 100%; padding-top: 90px; }
+  .hero-copy { max-width: 620px; }
+  .hero .eyebrow { font-size: .88rem; margin-bottom: 22px; }
+  .hero h1 { font-size: clamp(2.5rem, 5.2vw, 4.4rem); line-height: 1.3; margin-bottom: 26px; }
+  .hero p { color: rgba(255,255,255,.78); font-size: 1.05rem; margin: 0 0 38px; max-width: 540px; }
+  .hero .cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
+  .scroll-hint { position: absolute; z-index: 2; bottom: 28px; left: 50%; transform: translateX(-50%); display: grid; justify-items: center; gap: 8px; font-size: .68rem; color: rgba(255,255,255,.6); }
+  .scroll-hint i { width: 1px; height: 44px; background: linear-gradient(#fff, transparent); display: block; }
+
+  /* ---------- About ---------- */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 90px); align-items: center; }
+  .about h2 { font-size: clamp(2rem, 3.8vw, 3rem); line-height: 1.4; margin-bottom: 24px; }
+  .about h2 em { font-style: normal; color: var(--gold); }
+  .about p { color: var(--muted); max-width: 480px; margin: 0 0 34px; }
+  .checks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; max-width: 480px; }
+  .checks li { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: .86rem; font-weight: 400; }
+  .checks li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex: none; }
+  .about-photo { position: relative; justify-self: center; width: min(100%, 480px); }
+  .about-photo::before { content: ""; position: absolute; inset: 14px -14px -14px 14px; border: 1px solid var(--line); border-radius: 26px; z-index: 0; }
+  .about-photo img { position: relative; z-index: 1; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 24px; border: 2px solid var(--ink); box-shadow: 0 30px 60px -20px rgba(0,0,0,.28); }
+
+  /* ---------- Collections ---------- */
+  .cards4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .col-card { position: relative; display: block; aspect-ratio: 3 / 4; border-radius: 18px; overflow: hidden; background: #222; color: #fff; box-shadow: 0 24px 40px -22px rgba(0,0,0,.35); }
+  .col-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
+  .col-card:hover img { transform: scale(1.06); }
+  .col-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.35) 42%, rgba(0,0,0,0) 70%); }
+  .col-card .txt { position: absolute; z-index: 2; inset: auto 0 0 0; padding: 22px; }
+  .col-card h3 { font-size: 1.18rem; margin-bottom: 6px; }
+  .col-card p { margin: 0 0 14px; font-size: .8rem; line-height: 1.8; color: rgba(255,255,255,.82); }
+  .col-card .more { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font-size: .78rem; font-weight: 400; }
+
+  /* ---------- Gallery ---------- */
+  .filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 38px; }
+  .chip { border: 0; background: #F4F4F4; color: #444; border-radius: 999px; padding: 6px 20px; min-height: 40px; font-size: .82rem; font-weight: 400; transition: background .2s, color .2s; }
+  .chip:hover { background: #E9E9E9; }
+  .chip[aria-pressed="true"] { background: var(--ink); color: #fff; font-weight: 500; }
+  .masonry { column-count: 3; column-gap: 18px; }
+  .masonry figure { margin: 0 0 18px; break-inside: avoid; border-radius: 16px; overflow: hidden; box-shadow: 0 18px 36px -18px rgba(0,0,0,.3); background: #eee; }
+  .masonry figure[hidden] { display: none; }
+  .masonry img { width: 100%; height: auto; transition: transform .6s ease; }
+  .masonry figure:hover img { transform: scale(1.04); }
+
+
+  /* ---------- Lightbox ---------- */
+  .masonry figure { cursor: zoom-in; }
+  .lb { position: fixed; inset: 0; z-index: 100; background: rgba(10,10,10,.95); display: none; align-items: center; justify-content: center; padding: 72px 24px 24px; }
+  .lb.open { display: flex; }
+  .lb-inner { display: flex; flex-direction: column; align-items: center; gap: 20px; width: min(92vw, 520px); }
+  .lb-img { max-width: 100%; max-height: 68vh; width: auto; height: auto; border-radius: 6px; object-fit: contain; background: #111; }
+  .lb-info { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; flex-wrap: wrap; }
+  .lb-cat { display: block; color: var(--gold); font-size: .78rem; font-weight: 400; line-height: 1.5; }
+  .lb-title { color: #fff; font-size: 1.3rem; line-height: 1.6; }
+  .lb-btn { position: absolute; display: grid; place-items: center; width: 48px; height: 48px; border: 0; border-radius: 50%; background: transparent; color: #fff; font-size: 1.7rem; transition: background .2s, color .2s; }
+  .lb-btn:hover { background: rgba(255,255,255,.12); color: var(--gold); }
+  .lb-close { top: 18px; right: 22px; }
+  .lb-prev { right: 22px; top: 50%; transform: translateY(-50%); }
+  .lb-next { left: 22px; top: 50%; transform: translateY(-50%); }
+  body.lb-open { overflow: hidden; }
+  @media (max-width: 700px) {
+    .lb-prev, .lb-next { top: auto; bottom: 22px; transform: none; }
+    .lb { padding-bottom: 84px; }
   }
 
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
+  /* ---------- Why ---------- */
+  .cards5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+  .why { background: #fff; border-radius: 18px; padding: 30px 20px; text-align: center; box-shadow: 0 22px 40px -24px rgba(0,0,0,.22); transition: transform .3s; }
+  .why:hover { transform: translateY(-4px); }
+  .why .ic { width: 48px; height: 48px; border-radius: 50%; background: #FAF6EF; color: var(--gold-deep); display: grid; place-items: center; margin: 0 auto 18px; font-size: 1.15rem; }
+  .why h3 { font-size: .95rem; margin-bottom: 8px; }
+  .why p { margin: 0; font-size: .8rem; line-height: 1.9; color: var(--muted); }
+
+  /* ---------- Instagram ---------- */
+  .insta .sec-head { margin-bottom: 30px; }
+  .insta .eyebrow { font-family: "Vazirmatn", sans-serif; letter-spacing: .28em; direction: ltr; }
+  .strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 40px; }
+  .strip a { display: block; aspect-ratio: 1; border-radius: 14px; overflow: hidden; }
+  .strip img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .5s; }
+  .strip a:hover img { transform: scale(1.07); }
+
+  /* ---------- Reviews ---------- */
+  .cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .review { position: relative; background: #fff; border-radius: 18px; padding: 34px 28px 26px; box-shadow: 0 22px 40px -24px rgba(0,0,0,.22); display: flex; flex-direction: column; }
+  .review .q { position: absolute; top: 18px; left: 22px; color: #E9DDC4; font-size: 2rem; }
+  .review blockquote { margin: 0 0 22px; font-size: .9rem; line-height: 2; color: #333; flex: 1; padding-top: 6px; }
+  .review footer { border-top: 1px solid var(--line); padding-top: 16px; }
+  .review b { display: block; font-family: var(--heading); font-size: .95rem; }
+  .review span { color: var(--gold); font-size: .75rem; }
+
+  /* ---------- Booking ---------- */
+  .book-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .panel { background: #fff; border-radius: 20px; padding: 28px; box-shadow: 0 24px 50px -26px rgba(0,0,0,.25); }
+  .cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+  .cal-head h3 { font-size: 1rem; }
+  .nav-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: #fff; display: grid; place-items: center; font-size: .9rem; transition: border-color .2s; }
+  .nav-btn:hover:not(:disabled) { border-color: var(--ink); }
+  .nav-btn:disabled { opacity: .35; cursor: default; }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); row-gap: 8px; text-align: center; }
+  .cal-grid .dow { font-size: .68rem; color: #9a9a9a; padding-bottom: 10px; }
+  .cal-grid .dow.fri { color: var(--gold); }
+  .day { position: relative; height: 48px; border: 0; background: transparent; font-size: .82rem; border-radius: 50%; width: 48px; margin-inline: auto; transition: background .2s, color .2s; }
+  .day:hover:not(:disabled):not(.sel) { background: #F4F4F4; }
+  .day:disabled { color: #C9C9C9; cursor: default; }
+  .day.today::after { content: ""; position: absolute; bottom: 6px; left: 50%; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); transform: translateX(-50%); }
+  .day.sel { background: var(--ink); color: #fff; }
+  .slots { display: none; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
+  .slots.show { display: block; }
+  .slots small { display: block; color: var(--muted); font-size: .72rem; margin-bottom: 10px; }
+  .slot-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .slot { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 4px 14px; font-size: .78rem; min-height: 34px; }
+  .slot[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  .field { margin-bottom: 18px; }
+  .field label, .field .lbl { display: block; font-size: .72rem; color: #777; margin-bottom: 6px; font-weight: 400; }
+  .field input, .field textarea { width: 100%; border: 1px solid transparent; background: var(--soft); border-radius: 12px; padding: 12px 16px; font-size: .88rem; outline: none; transition: border-color .2s, background .2s; }
+  .field input:focus, .field textarea:focus { border-color: var(--gold); background: #fff; }
+  .field textarea { min-height: 84px; resize: vertical; }
+  ::placeholder { color: #B5B5B5; }
+  .seg { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .seg button { min-height: 44px; border: 0; border-radius: 12px; background: var(--soft); font-size: .82rem; font-weight: 400; transition: background .2s, color .2s; }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: #fff; font-weight: 500; }
+  .submit { width: 100%; min-height: 50px; border: 0; border-radius: 999px; background: var(--gold); color: var(--ink); font-size: .88rem; font-weight: 500; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 14px 28px -12px rgba(201,169,106,.7); transition: background .2s; }
+  .submit:hover { background: #d6b87c; }
+  .err { margin: 12px 0 0; min-height: 1.4em; font-size: .78rem; color: #B3261E; }
+  .chosen { margin: 0 0 18px; font-size: .8rem; color: var(--muted); }
+  .chosen b { color: var(--text); font-weight: 500; }
+
+  /* ---------- Contact (dark) ---------- */
+  .contact { background: var(--ink); color: #fff; }
+  .contact .sec-head p { color: rgba(255,255,255,.6); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; }
+  .info-list { display: grid; gap: 14px; align-content: start; }
+  .info { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; transition: border-color .25s; }
+  a.info:hover { border-color: rgba(201,169,106,.6); }
+  .info .ic { width: 42px; height: 42px; border-radius: 50%; background: rgba(201,169,106,.14); color: var(--gold); display: grid; place-items: center; flex: none; }
+  .info small { display: block; color: rgba(255,255,255,.55); font-size: .7rem; line-height: 1.5; }
+  .info strong { display: block; font-weight: 500; font-size: .92rem; line-height: 1.7; }
+  .map { min-height: 340px; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.1); background: #e5e3df; }
+  .map iframe { width: 100%; height: 100%; min-height: 340px; border: 0; display: block; filter: grayscale(.25); }
+
+  /* ---------- Footer ---------- */
+  .footer { background: var(--ink); color: #fff; border-top: 1px solid rgba(255,255,255,.08); padding-top: 64px; }
+  .foot-grid { display: grid; grid-template-columns: 1.3fr 1fr 1.3fr; gap: 40px; padding-bottom: 48px; }
+  .foot-brand b { font-family: var(--heading); font-size: 1.7rem; display: block; line-height: 1.1; }
+  .foot-brand small { color: var(--gold); font-size: .62rem; display: block; margin-bottom: 18px; }
+  .foot-brand p { margin: 0; color: rgba(255,255,255,.62); font-size: .85rem; max-width: 300px; }
+  .footer h4 { font-family: var(--body); font-weight: 500; font-size: .95rem; margin-bottom: 18px; }
+  .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: .82rem; color: rgba(255,255,255,.62); }
+  .footer ul a:hover { color: var(--gold); }
+  .foot-contact { display: grid; gap: 8px; font-size: .82rem; color: rgba(255,255,255,.62); }
+  .socials { display: flex; gap: 10px; margin-top: 12px; }
+  .socials a { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,.18); display: grid; place-items: center; font-size: .95rem; transition: border-color .2s, color .2s; }
+  .socials a:hover { border-color: var(--gold); color: var(--gold); }
+  .foot-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-block: 22px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-size: .74rem; color: rgba(255,255,255,.5); }
+  .foot-bottom .latin { letter-spacing: .18em; font-weight: 500; direction: ltr; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1020px) {
+    .cards4 { grid-template-columns: repeat(2, 1fr); }
+    .cards5 { grid-template-columns: repeat(3, 1fr); }
+    .cards3 { grid-template-columns: 1fr 1fr; }
   }
-
-  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--accent);
-    border: 1.5px solid var(--accent);
+  @media (max-width: 860px) {
+    .nav { display: none; }
+    .header .wrap { grid-template-columns: 1fr auto; }
+    .about-grid, .book-grid, .contact-grid { grid-template-columns: 1fr; }
+    .about-photo { order: -1; }
+    .masonry { column-count: 2; }
+    .strip { grid-template-columns: repeat(3, 1fr); }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .foot-brand { grid-column: 1 / -1; }
+    .hero-img { width: 100%; opacity: .55; -webkit-mask-image: none; mask-image: none; object-position: center; }
+    .hero::after { background: linear-gradient(to top, rgba(11,9,7,.6), rgba(11,9,7,.2)); }
   }
-
-  .btn-outline:hover { background: var(--accent-light); }
-
-  /* SERVICES */
-  .section { padding: 72px 5%; }
-  .section-title {
-    text-align: center;
-    font-size: 1.7rem;
-    font-weight: 700;
-    margin-bottom: 8px;
+  @media (max-width: 560px) {
+    .cards4, .cards3 { grid-template-columns: 1fr; }
+    .cards5 { grid-template-columns: 1fr 1fr; }
+    .masonry { column-count: 1; }
+    .day { width: 40px; height: 40px; }
+    .foot-grid { grid-template-columns: 1fr; }
+    .scroll-hint { display: none; }
   }
-
-  .section-sub {
-    text-align: center;
-    color: var(--muted);
-    margin-bottom: 48px;
-    font-size: 0.95rem;
-  }
-
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
-  }
-
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 32px 24px;
-    text-align: center;
-    transition: box-shadow 150ms ease, transform 150ms ease;
-  }
-
-  .card:hover {
-    box-shadow: 0 4px 24px oklch(62% 0.18 10 / 0.1);
-    transform: translateY(-3px);
-  }
-
-  .card-icon {
-    font-size: 2.4rem;
-    margin-bottom: 16px;
-  }
-
-  .card h3 { font-size: 1.1rem; margin-bottom: 8px; }
-  .card p { color: var(--muted); font-size: 0.9rem; }
-
-  /* PORTFOLIO */
-  .portfolio-bg { background: oklch(96% 0.015 10); }
-
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
-
-  .portfolio-item {
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    transition: transform 150ms ease, box-shadow 150ms ease;
-  }
-
-  .portfolio-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 32px oklch(62% 0.18 10 / 0.12);
-  }
-
-  .portfolio-img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    display: block;
-    background: var(--accent-light);
-  }
-
-  /* SVG placeholder images */
-  .portfolio-placeholder {
-    width: 100%;
-    aspect-ratio: 4/3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    background: linear-gradient(135deg, var(--accent-light), oklch(90% 0.08 30));
-  }
-
-  .portfolio-info { padding: 16px 20px; }
-  .portfolio-info h4 { font-size: 1rem; margin-bottom: 4px; }
-  .portfolio-info p { color: var(--muted); font-size: 0.85rem; }
-
-  .tag {
-    display: inline-block;
-    background: var(--accent-light);
-    color: var(--accent-dark);
-    font-size: 0.75rem;
-    padding: 2px 10px;
-    border-radius: 99px;
-    margin-top: 8px;
-    font-weight: 600;
-  }
-
-  /* ORDER */
-  .order-section {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-    padding: 72px 5%;
-    text-align: center;
-    color: #fff;
-  }
-
-  .order-section h2 { font-size: 1.8rem; margin-bottom: 12px; }
-  .order-section p { opacity: 0.85; margin-bottom: 36px; max-width: 480px; margin-inline: auto; margin-bottom: 36px; }
-
-  .contact-cards {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .contact-card {
-    background: oklch(100% 0 0 / 0.12);
-    border: 1.5px solid oklch(100% 0 0 / 0.25);
-    border-radius: var(--radius-md);
-    padding: 24px 32px;
-    color: #fff;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: background 150ms ease;
-    min-width: 160px;
-  }
-
-  .contact-card:hover { background: oklch(100% 0 0 / 0.22); }
-  .contact-card .icon { font-size: 2rem; }
-  .contact-card small { font-weight: 400; opacity: 0.8; font-size: 0.8rem; }
-
-  /* PROCESS */
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 24px;
-    counter-reset: step;
-  }
-
-  .step {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 28px 20px;
-    position: relative;
-  }
-
-  .step-num {
-    width: 36px;
-    height: 36px;
-    background: var(--accent-light);
-    color: var(--accent-dark);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.9rem;
-    margin-bottom: 14px;
-  }
-
-  .step h4 { font-size: 1rem; margin-bottom: 6px; }
-  .step p { color: var(--muted); font-size: 0.88rem; }
-
-  /* FOOTER */
-  footer {
-    background: oklch(14% 0.01 60);
-    color: oklch(70% 0.01 60);
-    text-align: center;
-    padding: 32px 5%;
-    font-size: 0.88rem;
-  }
-
-  footer strong { color: #fff; }
-
-  @media (max-width: 600px) {
-    nav ul { display: none; }
-    .hero { padding: 64px 5% 56px; }
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; transform: none !important; }
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
   }
 </style>
 </head>
-<body>
+<body id="top">
 
-<nav>
-  <div class="logo">
-    مزون دلاویز
-    <span>دوخت تخصصی لباس کودک و مادر</span>
-  </div>
-  <ul>
-    <li><a href="#services">خدمات</a></li>
-    <li><a href="#portfolio">نمونه کارها</a></li>
-    <li><a href="#process">فرآیند سفارش</a></li>
-    <li><a href="#contact">تماس</a></li>
-  </ul>
-</nav>
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-gem" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 24 24"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></symbol>
+</svg>
 
-<section class="hero">
-  <div class="hero-badge">✦ سفارش‌پذیر — دوخت اختصاصی</div>
-  <h1>لباس‌هایی که <em>داستان می‌گویند</em><br>برای مادر و کودک</h1>
-  <p>طراحی و دوخت لباس‌های منحصربه‌فرد با پارچه‌های باکیفیت، متناسب با سلیقه و اندام شما</p>
-  <div class="btn-group">
-    <a href="#contact" class="btn btn-primary">📲 ثبت سفارش</a>
-    <a href="#portfolio" class="btn btn-outline">مشاهده نمونه کارها</a>
-  </div>
-</section>
-
-<section class="section" id="services">
-  <h2 class="section-title">خدمات ما</h2>
-  <p class="section-sub">هر لباس با دقت و عشق دوخته می‌شود</p>
-  <div class="cards">
-    <div class="card">
-      <div class="card-icon">👗</div>
-      <h3>لباس مادر</h3>
-      <p>پیراهن، مانتو، ست مجلسی و روزمره با طراحی مدرن و دوخت حرفه‌ای</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🧒</div>
-      <h3>لباس کودک</h3>
-      <p>پوشاک راحت و شاد برای نوزاد تا نوجوان، با پارچه‌های ایمن و نرم</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">👩‍👧</div>
-      <h3>ست مادر و کودک</h3>
-      <p>طرح‌های هماهنگ و دلنشین برای لحظات خاص و عکاسی</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">✂️</div>
-      <h3>دوخت سفارشی</h3>
-      <p>طراحی بر اساس ایده شما، با انتخاب پارچه و رنگ دلخواه</p>
-    </div>
-  </div>
-</section>
-
-<section class="section portfolio-bg" id="portfolio">
-  <h2 class="section-title">نمونه کارها</h2>
-  <p class="section-sub">بخشی از آثار اخیر مزون دلاویز</p>
-  <div class="portfolio-grid">
-
-    <div class="portfolio-item">
-      <div class="portfolio-placeholder">🌸</div>
-      <div class="portfolio-info">
-        <h4>پیراهن مجلسی مادر</h4>
-        <p>پارچه ژاکارد گلدار، آستین سه‌ربع، دوخت سفارشی</p>
-        <span class="tag">لباس مادر</span>
-      </div>
-    </div>
-
-    <div class="portfolio-item">
-      <div class="portfolio-placeholder">🎀</div>
-      <div class="portfolio-info">
-        <h4>ست مادر و دختر</h4>
-        <p>پارچه کتان رنگ کرم، طرح هماهنگ، مناسب عکاسی</p>
-        <span class="tag">ست مادر و کودک</span>
-      </div>
-    </div>
-
-    <div class="portfolio-item">
-      <div class="portfolio-placeholder">🧸</div>
-      <div class="portfolio-info">
-        <h4>سرهمی نوزادی</h4>
-        <p>پارچه نخ پنبه ارگانیک، طرح خرس کوچولو، سایز ۳ تا ۱۸ ماه</p>
-        <span class="tag">لباس کودک</span>
-      </div>
-    </div>
-
-    <div class="portfolio-item">
-      <div class="portfolio-placeholder">🌿</div>
-      <div class="portfolio-info">
-        <h4>مانتو روزمره</h4>
-        <p>پارچه کرپ سبز زیتونی، یقه هفت، جیب دوبل</p>
-        <span class="tag">لباس مادر</span>
-      </div>
-    </div>
-
-    <div class="portfolio-item">
-      <div class="portfolio-placeholder">🦋</div>
-      <div class="portfolio-info">
-        <h4>پیراهن دخترانه</h4>
-        <p>پارچه شیفون چاپی، کمربند پاپیونی، سایز ۲ تا ۸ سال</p>
-        <span class="tag">لباس کودک</span>
-      </div>
-    </div>
-
-    <div class="portfolio-item">
-      <div class="portfolio-placeholder">💐</div>
-      <div class="portfolio-info">
-        <h4>ست مجلسی مادر و پسر</h4>
-        <p>پارچه ساتن آبی نفتی، مناسب مراسم و جشن‌ها</p>
-        <span class="tag">ست مادر و کودک</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="section" id="process">
-  <h2 class="section-title">فرآیند سفارش</h2>
-  <p class="section-sub">از ایده تا تحویل، همراه شما هستیم</p>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">۱</div>
-      <h4>تماس و مشاوره</h4>
-      <p>از طریق واتساپ یا اینستاگرام با ما در ارتباط باشید و ایده‌تان را بگویید</p>
-    </div>
-    <div class="step">
-      <div class="step-num">۲</div>
-      <h4>استعلام قیمت</h4>
-      <p>بر اساس مدل، پارچه و سایز، قیمت دقیق اعلام می‌شود</p>
-    </div>
-    <div class="step">
-      <div class="step-num">۳</div>
-      <h4>انتخاب پارچه</h4>
-      <p>پارچه‌های موجود معرفی می‌شوند یا پارچه دلخواه شما دوخته می‌شود</p>
-    </div>
-    <div class="step">
-      <div class="step-num">۴</div>
-      <h4>دوخت و تحویل</h4>
-      <p>لباس با دقت دوخته و در زمان توافق‌شده تحویل داده می‌شود</p>
-    </div>
-  </div>
-</section>
-
-<section class="order-section" id="contact">
-  <h2>آماده سفارش هستید؟</h2>
-  <p>برای استعلام قیمت، مشاوره رایگان یا ثبت سفارش با ما تماس بگیرید</p>
-  <div class="contact-cards">
-    <a href="https://wa.me/989XXXXXXXXX" class="contact-card" target="_blank" rel="noopener">
-      <span class="icon">💬</span>
-      واتساپ
-      <small>پاسخ سریع</small>
+<!-- Header -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="مزون دلاویز">
+      <b>Delaviz</b><small>مزون دلاویز</small>
     </a>
-    <a href="https://instagram.com/delaviz_mazon" class="contact-card" target="_blank" rel="noopener">
-      <span class="icon">📸</span>
-      اینستاگرام
-      <small>@delaviz_mazon</small>
-    </a>
+    <nav class="nav" aria-label="منوی اصلی">
+      <a href="#about">درباره ما</a>
+      <a href="#collections">کالکشن‌ها</a>
+      <a href="#gallery">گالری</a>
+    </nav>
+    <a href="#booking" class="btn btn-ghost cta">مشاوره خرید</a>
   </div>
-</section>
+</header>
 
-<footer>
-  <p>© ۱۴۰۵ <strong>مزون دلاویز</strong> — دوخت تخصصی لباس کودک و مادر</p>
-  <p style="margin-top:8px; font-size:0.8rem;">فروش حضوری نداریم — سفارش از طریق واتساپ و اینستاگرام</p>
+<main>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img class="hero-img" src="images/hero.jpg" alt="" fetchpriority="high">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">اصالت، درخشش، دلاویز</span>
+        <h1>اصالت، هرگز از مد نمی‌افتد</h1>
+        <p>جدیدترین کالکشن‌های مزون دلاویز را کشف کنید؛ جایی که پارچه‌های مرغوب، طراحی‌های مدرن و ظرافت ایرانی به هم می‌پیوندند.</p>
+        <div class="cta-row">
+          <a href="#collections" class="btn btn-gold">مشاهده کالکشن <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a href="#contact" class="btn btn-ghost"><svg class="icon"><use href="#i-phone"/></svg> تماس با ما</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint"><span>اسکرول</span><i></i></div>
+  </section>
+
+  <!-- About -->
+  <section class="section about" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <span class="eyebrow">درباره دلاویز</span>
+        <h2>بوتیکی برای زنی که <em>اصالت</em> را می‌شناسد</h2>
+        <p>مزون دلاویز، فضایی است که در آن مد به هنر نزدیک می‌شود. ما با انتخاب دقت‌مند پارچه‌ها، طراحی‌های مدرن و الهام از ظرافت ایرانی، کالکشنی ساخته‌ایم که حس اعتماد و زیبایی را در کنار هم تجربه می‌کنید.</p>
+        <ul class="checks">
+          <li>پارچه‌های مرغوب</li>
+          <li>طراحی‌های مدرن</li>
+          <li>استایل‌های ظریف</li>
+          <li>انتخاب دقت‌مند</li>
+        </ul>
+      </div>
+      <div class="about-photo">
+        <img src="images/about.jpg" alt="کت مخمل طلایی با بلوز ساتن" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Collections -->
+  <section class="section soft" id="collections">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">کالکشن‌های منتخب</span>
+        <h2>مجموعه‌هایی برای هر لحظه</h2>
+        <div class="rule"></div>
+      </div>
+      <div class="cards4">
+        <a class="col-card" href="#gallery">
+          <img src="images/col-evening.jpg" alt="" loading="lazy">
+          <div class="txt">
+            <h3>لباس شب</h3>
+            <p>طرح‌های فاخر برای شب‌های به‌یادماندنی؛ پارچه‌های ابریشمی و مخمل با دوخت ظریف.</p>
+            <span class="more"><svg class="icon"><use href="#i-arrow"/></svg> مشاهده گالری</span>
+          </div>
+        </a>
+        <a class="col-card" href="#gallery">
+          <img src="images/col-casual.jpg" alt="" loading="lazy">
+          <div class="txt">
+            <h3>پوشاک کژوال</h3>
+            <p>آرامش و ظرافت در زندگی روزمره؛ لباس‌هایی برای لحظات صادق و سبک.</p>
+            <span class="more"><svg class="icon"><use href="#i-arrow"/></svg> مشاهده گالری</span>
+          </div>
+        </a>
+        <a class="col-card" href="#gallery">
+          <img src="images/col-formal.jpg" alt="" loading="lazy">
+          <div class="txt">
+            <h3>کالکشن فرمال</h3>
+            <p>استایل رسمی با شخصیتی قاطع؛ کت‌های تراش‌خورده و خطوط معماری.</p>
+            <span class="more"><svg class="icon"><use href="#i-arrow"/></svg> مشاهده گالری</span>
+          </div>
+        </a>
+        <a class="col-card" href="#gallery">
+          <img src="images/col-summer.jpg" alt="" loading="lazy">
+          <div class="txt">
+            <h3>کالکشن تابستان</h3>
+            <p>نوری که روی کتان می‌رقصد؛ لباس‌های خنک و روان برای روزهای روشن.</p>
+            <span class="more"><svg class="icon"><use href="#i-arrow"/></svg> مشاهده گالری</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section" id="gallery">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">گالری</span>
+        <h2>نمایشگاه دلاویز</h2>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="فیلتر گالری">
+        <button class="chip" data-cat="all" aria-pressed="true">همه</button>
+        <button class="chip" data-cat="dress" aria-pressed="false">لباس</button>
+        <button class="chip" data-cat="coat" aria-pressed="false">مانتو</button>
+        <button class="chip" data-cat="set" aria-pressed="false">ست</button>
+        <button class="chip" data-cat="blouse" aria-pressed="false">بلوز</button>
+        <button class="chip" data-cat="pants" aria-pressed="false">شلوار</button>
+        <button class="chip" data-cat="acc" aria-pressed="false">اکسسوری</button>
+      </div>
+      <div class="masonry" id="masonry">
+        <figure data-title="لباس شب مخمل شرابی" data-cat="dress"><img src="images/gallery-velvet-gown.jpg" alt="لباس شب مخمل شرابی" loading="lazy"></figure>
+        <figure data-title="بلوز سفید با طلای دوزی" data-cat="blouse"><img src="images/gallery-white-blouse.jpg" alt="بلوز سفید گل‌دوزی‌شده" loading="lazy"></figure>
+        <figure data-title="لباس ساتن سبز زمردی" data-cat="dress"><img src="images/gallery-green-dress.jpg" alt="لباس ساتن سبز" loading="lazy"></figure>
+        <figure data-title="مانتوی بلند مشکی" data-cat="coat"><img src="images/gallery-black-coat.jpg" alt="مانتوی بلند مشکی" loading="lazy"></figure>
+        <figure data-title="شلوار کِرم راسته" data-cat="pants"><img src="images/gallery-cream-trousers.jpg" alt="شلوار کِرم راسته" loading="lazy"></figure>
+        <figure data-title="مانتوی بژ" data-cat="coat"><img src="images/gallery-beige-coat.jpg" alt="مانتوی بژ" loading="lazy"></figure>
+        <figure data-title="روسری ابریشمی و زیورآلات طلایی" data-cat="acc"><img src="images/gallery-accessories.jpg" alt="روسری ابریشمی و زیورآلات طلایی" loading="lazy"></figure>
+        <figure data-title="ست بلوز و شلوار کِرم" data-cat="set"><img src="images/gallery-cream-set.jpg" alt="ست بلوز و شلوار کِرم" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="section soft" id="why">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">چرا دلاویز</span>
+        <h2>تجربه‌ای فراتر از خرید</h2>
+      </div>
+      <div class="cards5">
+        <div class="why"><div class="ic"><svg class="icon"><use href="#i-gem"/></svg></div><h3>کیفیت ممتاز</h3><p>پارچه‌های انتخاب‌شده از بهترین کارخانه‌های بافت.</p></div>
+        <div class="why"><div class="ic"><svg class="icon"><use href="#i-spark"/></svg></div><h3>طراحی ظریف</h3><p>هر مدل با وسواس و الهام از مد روز دنیا.</p></div>
+        <div class="why"><div class="ic"><svg class="icon"><use href="#i-refresh"/></svg></div><h3>کالکشن‌های نو</h3><p>مدام در حال تازه کردن مجموعه‌ها بر اساس فصل.</p></div>
+        <div class="why"><div class="ic"><svg class="icon"><use href="#i-heart"/></svg></div><h3>خدمات شخصی</h3><p>مشاوره خصوصی برای انتخاب بهترین استایل شما.</p></div>
+        <div class="why"><div class="ic"><svg class="icon"><use href="#i-compass"/></svg></div><h3>انتخاب دقت‌مند</h3><p>هر قطعه با سلیقه و دقت انتخاب شده است.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram -->
+  <section class="section insta" id="instagram">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">DELAVIZ.BOUTIQUE@</span>
+        <h2>دلاویز در اینستاگرام</h2>
+      </div>
+      <div style="text-align:center">
+        <a class="btn btn-pill" href="https://instagram.com/delaviz.boutique" target="_blank" rel="noopener"><svg class="icon"><use href="#i-insta"/></svg> دنبال کردن اینستاگرام</a>
+      </div>
+      <div class="strip">
+        <a href="https://instagram.com/delaviz.boutique" target="_blank" rel="noopener" aria-label="اینستاگرام دلاویز"><img src="images/gallery-green-dress.jpg" alt="" loading="lazy"></a>
+        <a href="https://instagram.com/delaviz.boutique" target="_blank" rel="noopener" aria-label="اینستاگرام دلاویز"><img src="images/gallery-beige-coat.jpg" alt="" loading="lazy"></a>
+        <a href="https://instagram.com/delaviz.boutique" target="_blank" rel="noopener" aria-label="اینستاگرام دلاویز"><img src="images/gallery-cream-set.jpg" alt="" loading="lazy"></a>
+        <a href="https://instagram.com/delaviz.boutique" target="_blank" rel="noopener" aria-label="اینستاگرام دلاویز"><img src="images/gallery-white-blouse.jpg" alt="" loading="lazy"></a>
+        <a href="https://instagram.com/delaviz.boutique" target="_blank" rel="noopener" aria-label="اینستاگرام دلاویز"><img src="images/gallery-cream-trousers.jpg" alt="" loading="lazy"></a>
+        <a href="https://instagram.com/delaviz.boutique" target="_blank" rel="noopener" aria-label="اینستاگرام دلاویز"><img src="images/gallery-accessories.jpg" alt="" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section soft" id="reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">نظر مشتریان</span>
+        <h2>صدای زنانی که به ما اعتماد کردند</h2>
+      </div>
+      <div class="cards3">
+        <div class="review">
+          <svg class="icon q" fill="currentColor" stroke="none"><use href="#i-quote"/></svg>
+          <blockquote>«کیفیت پارچه و دوخت فوق‌العاده است. هر بار که از دلاویز خرید می‌کنم، حس یک تجربه لوکس را دارم.»</blockquote>
+          <footer><b>نگار محمدی</b><span>تهران</span></footer>
+        </div>
+        <div class="review">
+          <svg class="icon q" fill="currentColor" stroke="none"><use href="#i-quote"/></svg>
+          <blockquote>«طراحی‌ها اصیل و مدرن است. مشاوره شخصی‌شان کمک کرد استایل واقعی خودم را پیدا کنم.»</blockquote>
+          <footer><b>سارا کریمی</b><span>اصفهان</span></footer>
+        </div>
+        <div class="review">
+          <svg class="icon q" fill="currentColor" stroke="none"><use href="#i-quote"/></svg>
+          <blockquote>«از لحظه ورود تا تحویل، همه‌چیز بی‌نقص بود. واقعاً یک مزون متفاوت و حرفه‌ای.»</blockquote>
+          <footer><b>مریم رستمی</b><span>شیراز</span></footer>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking -->
+  <section class="section soft" id="booking" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">رزرو نوبت</span>
+        <h2>وقتی برای زیبایی شما</h2>
+        <p>برای بازدید حضوری یا جلسه پرو لباس، روز و ساعت موردنظر را انتخاب کنید. جزئیات نوبت شما به‌صورت خودکار در واتس‌اپ آماده ارسال می‌شود.</p>
+      </div>
+      <div class="book-grid">
+        <!-- Calendar -->
+        <div class="panel">
+          <div class="cal-head">
+            <button class="nav-btn" id="prev" aria-label="ماه قبل"><svg class="icon"><use href="#i-right"/></svg></button>
+            <h3 id="cal-title"></h3>
+            <button class="nav-btn" id="next" aria-label="ماه بعد"><svg class="icon"><use href="#i-left"/></svg></button>
+          </div>
+          <div class="cal-grid" id="cal"></div>
+          <div class="slots" id="slots">
+            <small>ساعت موردنظر (اختیاری)</small>
+            <div class="slot-list" id="slot-list"></div>
+          </div>
+        </div>
+        <!-- Form -->
+        <div class="panel">
+          <div class="field">
+            <span class="lbl">نوع نوبت</span>
+            <div class="seg" id="type">
+              <button type="button" aria-pressed="true" data-v="بازدید حضوری">بازدید حضوری</button>
+              <button type="button" aria-pressed="false" data-v="پرو لباس">پرو لباس</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="name">نام و نام خانوادگی</label>
+            <input id="name" type="text" placeholder="مثلاً نگار محمدی" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="phone">شماره تماس</label>
+            <input id="phone" type="tel" inputmode="tel" placeholder="۰۹۱۲۳۴۵۶۷۸۹" autocomplete="tel" dir="ltr" style="text-align:right">
+          </div>
+          <div class="field">
+            <label for="notes">توضیحات (اختیاری)</label>
+            <textarea id="notes" placeholder="مثلاً نوع پارچه یا مدل موردنظر..."></textarea>
+          </div>
+          <p class="chosen" id="chosen">روزی را از تقویم انتخاب کنید.</p>
+          <button class="submit" id="submit" type="button"><svg class="icon"><use href="#i-chat"/></svg> ثبت و ارسال در واتس‌اپ</button>
+          <p class="err" id="err" role="alert"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact" id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">تماس با ما</span>
+        <h2>رشته‌ای مستقیم به دلاویز</h2>
+        <p>برای مشاوره خصوصی و استعلام هر محصول، از مسیرهای زیر با ما در ارتباط باشید.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="info-list">
+          <a class="info" id="wa-link" href="#" target="_blank" rel="noopener">
+            <span class="ic"><svg class="icon"><use href="#i-chat"/></svg></span>
+            <span><small>واتس‌اپ</small><strong>پیام مستقیم و مشاوره</strong></span>
+          </a>
+          <a class="info" href="tel:+982191234567">
+            <span class="ic"><svg class="icon"><use href="#i-phone"/></svg></span>
+            <span><small>تلفن</small><strong dir="ltr">+98 21 9123 4567</strong></span>
+          </a>
+          <a class="info" href="https://instagram.com/delaviz.boutique" target="_blank" rel="noopener">
+            <span class="ic"><svg class="icon"><use href="#i-insta"/></svg></span>
+            <span><small>اینستاگرام</small><strong dir="ltr">@delaviz.boutique</strong></span>
+          </a>
+          <div class="info">
+            <span class="ic"><svg class="icon"><use href="#i-pin"/></svg></span>
+            <span><small>آدرس</small><strong>تهران، خیابان فرشته، کوچه گلستان، پلاک ۱۲</strong></span>
+          </div>
+          <div class="info">
+            <span class="ic"><svg class="icon"><use href="#i-clock"/></svg></span>
+            <span><small>ساعات کاری</small><strong>شنبه تا پنجشنبه، ۱۰:۰۰ تا ۲۰:۰۰</strong></span>
+          </div>
+        </div>
+        <div class="map">
+          <!-- مختصات را با موقعیت واقعی مزون عوض کنید -->
+          <iframe title="نقشه مزون دلاویز" loading="lazy"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=51.4180%2C35.7850%2C51.4520%2C35.8050&layer=mapnik&marker=35.795%2C51.435"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <b>Delaviz</b><small>مزون دلاویز</small>
+        <p>اصالت، درخشش، دلاویز. بوتیکی برای زنی که اصالت را می‌شناسد.</p>
+      </div>
+      <div>
+        <h4>دسترسی سریع</h4>
+        <ul>
+          <li><a href="#top">خانه</a></li>
+          <li><a href="#about">درباره ما</a></li>
+          <li><a href="#collections">کالکشن‌ها</a></li>
+          <li><a href="#gallery">گالری</a></li>
+          <li><a href="#contact">تماس</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>اطلاعات تماس</h4>
+        <div class="foot-contact">
+          <span dir="ltr" style="text-align:right">+98 21 9123 4567</span>
+          <span>تهران، خیابان فرشته، کوچه گلستان، پلاک ۱۲</span>
+          <span>شنبه تا پنجشنبه، ۱۰:۰۰ تا ۲۰:۰۰</span>
+          <div class="socials">
+            <a href="#" id="wa-foot" target="_blank" rel="noopener" aria-label="واتس‌اپ"><svg class="icon"><use href="#i-chat"/></svg></a>
+            <a href="https://instagram.com/delaviz.boutique" target="_blank" rel="noopener" aria-label="اینستاگرام"><svg class="icon"><use href="#i-insta"/></svg></a>
+            <a href="tel:+982191234567" aria-label="تماس تلفنی"><svg class="icon"><use href="#i-phone"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 مزون دلاویز. تمام حقوق محفوظ است.</span>
+      <span class="latin">Designed with elegance</span>
+    </div>
+  </div>
 </footer>
 
+<!-- Lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="نمایش بزرگ عکس" hidden>
+  <button class="lb-btn lb-close" id="lb-close" aria-label="بستن"><svg class="icon"><use href="#i-x"/></svg></button>
+  <button class="lb-btn lb-prev" id="lb-prev" aria-label="عکس قبلی"><svg class="icon"><use href="#i-right"/></svg></button>
+  <button class="lb-btn lb-next" id="lb-next" aria-label="عکس بعدی"><svg class="icon"><use href="#i-left"/></svg></button>
+  <div class="lb-inner">
+    <img class="lb-img" id="lb-img" src="" alt="">
+    <div class="lb-info">
+      <div>
+        <span class="lb-cat" id="lb-cat"></span>
+        <h3 class="lb-title" id="lb-title"></h3>
+      </div>
+      <a class="btn btn-gold" id="lb-wa" href="#" target="_blank" rel="noopener"><svg class="icon"><use href="#i-chat"/></svg> استعلام در واتس‌اپ</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ============ تنظیمات: این‌ها را ویرایش کنید ============
+  const WHATSAPP_NUMBER = "982191234567"; // شماره واتس‌اپ بدون + و صفر اول
+  const SLOT_HOURS = ["۱۰:۰۰","۱۱:۰۰","۱۲:۰۰","۱۳:۰۰","۱۴:۰۰","۱۶:۰۰","۱۷:۰۰","۱۸:۰۰","۱۹:۰۰"];
+  // ======================================================
+
+  const toFa = (n) => Number(n).toLocaleString("fa-IR", { useGrouping: false });
+  const wa = (text) => "https://wa.me/" + WHATSAPP_NUMBER + (text ? "?text=" + encodeURIComponent(text) : "");
+
+  document.getElementById("wa-link").href = wa("سلام، می‌خواستم درباره مجموعه دلاویز مشاوره بگیرم.");
+  document.getElementById("wa-foot").href = wa("");
+
+  /* Header on scroll */
+  const header = document.getElementById("header");
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 40);
+  onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
+
+  /* Gallery filter */
+  const chips = document.querySelectorAll(".chip");
+  chips.forEach((chip) => chip.addEventListener("click", () => {
+    chips.forEach((c) => c.setAttribute("aria-pressed", String(c === chip)));
+    const cat = chip.dataset.cat;
+    document.querySelectorAll("#masonry figure").forEach((f) => {
+      f.hidden = cat !== "all" && f.dataset.cat !== cat;
+    });
+  }));
+
+  /* ---------- Lightbox ---------- */
+  const lb = document.getElementById("lb");
+  const lbImg = document.getElementById("lb-img");
+  const lbCat = document.getElementById("lb-cat");
+  const lbTitle = document.getElementById("lb-title");
+  const lbWa = document.getElementById("lb-wa");
+  const CAT_FA = { dress: "لباس", coat: "مانتو", set: "ست", blouse: "بلوز", pants: "شلوار", acc: "اکسسوری" };
+  const figs = () => Array.from(document.querySelectorAll("#masonry figure")).filter((f) => !f.hidden);
+  let lbIndex = 0, lbOpener = null;
+
+  document.querySelectorAll("#masonry figure").forEach((f) => {
+    f.tabIndex = 0; f.setAttribute("role", "button");
+    f.setAttribute("aria-label", "نمایش بزرگ: " + f.dataset.title);
+    f.addEventListener("click", () => openLb(f));
+    f.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLb(f); } });
+  });
+
+  function showLb(i) {
+    const list = figs();
+    if (!list.length) return;
+    lbIndex = (i + list.length) % list.length;
+    const f = list[lbIndex], img = f.querySelector("img");
+    lbImg.src = img.src; lbImg.alt = img.alt;
+    lbCat.textContent = CAT_FA[f.dataset.cat] || "";
+    lbTitle.textContent = f.dataset.title;
+    lbWa.href = wa("سلام، درباره «" + f.dataset.title + "» استعلام می‌خواستم.");
+  }
+  function openLb(f) {
+    lbOpener = f;
+    lb.hidden = false; lb.classList.add("open"); document.body.classList.add("lb-open");
+    showLb(figs().indexOf(f));
+    document.getElementById("lb-close").focus();
+  }
+  function closeLb() {
+    lb.classList.remove("open"); lb.hidden = true; document.body.classList.remove("lb-open");
+    if (lbOpener) lbOpener.focus();
+  }
+  document.getElementById("lb-close").addEventListener("click", closeLb);
+  document.getElementById("lb-next").addEventListener("click", () => showLb(lbIndex + 1));
+  document.getElementById("lb-prev").addEventListener("click", () => showLb(lbIndex - 1));
+  lb.addEventListener("click", (e) => { if (e.target === lb) closeLb(); });
+  document.addEventListener("keydown", (e) => {
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") closeLb();
+    else if (e.key === "ArrowLeft") showLb(lbIndex + 1);   // RTL: چپ = بعدی
+    else if (e.key === "ArrowRight") showLb(lbIndex - 1);
+  });
+
+  /* ---------- Jalali calendar (via Intl) ---------- */
+  const MONTHS = ["فروردین","اردیبهشت","خرداد","تیر","مرداد","شهریور","مهر","آبان","آذر","دی","بهمن","اسفند"];
+  const DOW = ["شنبه","یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه"];
+  const jf = new Intl.DateTimeFormat("en-u-ca-persian-nu-latn", { year: "numeric", month: "numeric", day: "numeric" });
+  const jp = (d) => { const o = {}; jf.formatToParts(d).forEach((p) => { if (p.type !== "literal") o[p.type] = parseInt(p.value, 10); }); return o; };
+  const noon = (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate(), 12);
+  const firstOfMonth = (d) => { const x = noon(d); while (jp(x).day > 1) x.setDate(x.getDate() - 1); return x; };
+  const sameDay = (a, b) => a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+
+  const today = noon(new Date());
+  let view = firstOfMonth(today);
+  let selected = null, slot = null, kind = "بازدید حضوری";
+
+  const calEl = document.getElementById("cal");
+  const titleEl = document.getElementById("cal-title");
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
+  const slotsEl = document.getElementById("slots");
+  const slotList = document.getElementById("slot-list");
+  const chosenEl = document.getElementById("chosen");
+
+  const labelOf = (d) => { const j = jp(d); return DOW[(d.getDay() + 1) % 7] + " " + toFa(j.day) + " " + MONTHS[j.month - 1] + " " + toFa(j.year); };
+
+  function renderCal() {
+    const j = jp(view);
+    titleEl.textContent = MONTHS[j.month - 1] + " " + toFa(j.year);
+    prevBtn.disabled = view <= firstOfMonth(today);
+    calEl.innerHTML = "";
+    DOW.forEach((n, i) => {
+      const h = document.createElement("div");
+      h.className = "dow" + (i === 6 ? " fri" : ""); h.textContent = n; calEl.appendChild(h);
+    });
+    for (let i = 0; i < (view.getDay() + 1) % 7; i++) calEl.appendChild(document.createElement("div"));
+    const cur = new Date(view);
+    while (jp(cur).month === j.month) {
+      const d = new Date(cur);
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "day"; b.textContent = toFa(jp(d).day);
+      if (d < today && !sameDay(d, today)) b.disabled = true;
+      if (sameDay(d, today)) b.classList.add("today");
+      if (selected && sameDay(d, selected)) b.classList.add("sel");
+      b.addEventListener("click", () => { selected = d; slot = null; renderCal(); renderSlots(); });
+      calEl.appendChild(b);
+      cur.setDate(cur.getDate() + 1);
+    }
+  }
+
+  function renderSlots() {
+    if (!selected) { slotsEl.classList.remove("show"); return; }
+    slotsEl.classList.add("show");
+    slotList.innerHTML = "";
+    SLOT_HOURS.forEach((h) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "slot"; b.textContent = h;
+      b.setAttribute("aria-pressed", String(slot === h));
+      b.addEventListener("click", () => { slot = slot === h ? null : h; renderSlots(); updateChosen(); });
+      slotList.appendChild(b);
+    });
+    updateChosen();
+  }
+
+  function updateChosen() {
+    chosenEl.innerHTML = selected
+      ? "نوبت انتخابی: <b>" + labelOf(selected) + (slot ? "، ساعت " + slot : "") + "</b>"
+      : "روزی را از تقویم انتخاب کنید.";
+  }
+
+  prevBtn.addEventListener("click", () => { const x = new Date(view); x.setDate(x.getDate() - 1); view = firstOfMonth(x); renderCal(); });
+  nextBtn.addEventListener("click", () => { const x = new Date(view); x.setDate(x.getDate() + 32); view = firstOfMonth(x); renderCal(); });
+  renderCal();
+
+  /* Appointment type */
+  const typeBtns = document.querySelectorAll("#type button");
+  typeBtns.forEach((b) => b.addEventListener("click", () => {
+    kind = b.dataset.v;
+    typeBtns.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+  }));
+
+  /* Submit → WhatsApp */
+  const err = document.getElementById("err");
+  document.getElementById("submit").addEventListener("click", () => {
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const notes = document.getElementById("notes").value.trim();
+    const digits = phone.replace(/[^\d۰-۹]/g, "");
+    err.textContent = "";
+    if (!selected) { err.textContent = "لطفاً یک روز از تقویم انتخاب کنید."; return; }
+    if (!name) { err.textContent = "لطفاً نام و نام خانوادگی را وارد کنید."; return; }
+    if (digits.length < 10) { err.textContent = "شماره تماس معتبر وارد کنید."; return; }
+    const lines = [
+      "سلام، می‌خواهم نوبت «" + kind + "» رزرو کنم.",
+      "تاریخ: " + labelOf(selected) + (slot ? "، ساعت " + slot : ""),
+      "نام: " + name,
+      "شماره تماس: " + phone
+    ];
+    if (notes) lines.push("توضیحات: " + notes);
+    window.open(wa(lines.join("\n")), "_blank", "noopener");
+  });
+</script>
 </body>
 </html>
-```فروش حضوری نداریم — سفارش از طریق واتساپ و اینستاگرام</p>
-
-کد کاملاً تمام شده بود. فایل HTML مزون دلاویز شامل تمام بخش‌های زیر است:
-
-- ناوبار چسبنده با لوگو و منو
-- بخش Hero با دکمه‌های سفارش
-- بخش خدمات (۴ کارت)
-- گالری نمونه کارها (۶ آیتم)
-- فرآیند سفارش (۴ مرحله)
-- بخش تماس با لینک واتساپ و اینستاگرام
-- فوتر
-
-برای استفاده، شماره واتساپ را در `href="https://wa.me/989XXXXXXXXX"` و آیدی اینستاگرام را در `@delaviz_mazon` جایگزین کنید.
-
